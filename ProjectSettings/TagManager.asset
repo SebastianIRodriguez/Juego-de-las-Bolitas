@@ -4,8 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - BolaR
-  - BolaV
+  - BolaRoja
+  - BolaVerde
+  - BolaAzul
+  - SpawnAzul
+  - SpawnVerde
+  - SpawnRoja
   layers:
   - Default
   - TransparentFX

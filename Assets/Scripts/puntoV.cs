@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class puntoV : MonoBehaviour {
 
-	public finish manager;
+	public GameManager manager;
 
 	public respawn r;
 
 	void OnCollisionEnter(Collision other) {
-		if(other.gameObject.CompareTag("BolaV"))
+		if(other.gameObject.CompareTag("BolaVerde"))
 		{
-			manager.sumar ();
+			manager.sumarPunto ();
 			manager.Ongreen = true;
 		}
 		if(other.gameObject.CompareTag("Player"))
 		{
 			r.last = false;
 		}
-		if(other.gameObject.CompareTag("BolaR"))
+		if(other.gameObject.CompareTag("BolaRoja"))
 		{
 			manager.Onred = false;
 		}

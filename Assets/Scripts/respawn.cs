@@ -8,14 +8,14 @@ public class respawn : MonoBehaviour {
 
 	public GameObject zonegreen;
 
-	public finish punto;
+	public GameManager manager;
 
 	public Transform LadoV, LadoR;
 
 	public bool last=false;//false = verde, true = rojo
 	
 	void OnCollisionEnter(Collision other) {
-		if(other.gameObject.CompareTag("BolaR"))
+		if(other.gameObject.CompareTag("BolaRoja"))
 		{
 			Vector3 temp = other.gameObject.transform.position;
 
@@ -25,10 +25,10 @@ public class respawn : MonoBehaviour {
 
 			other.gameObject.transform.position = temp;
 
-			punto.restar ();
+			manager.restarPunto();
 		}
 
-		if(other.gameObject.CompareTag("BolaV"))
+		if(other.gameObject.CompareTag("BolaVerde"))
 		{
 			Vector3 temp = other.gameObject.transform.position;
 
@@ -38,7 +38,7 @@ public class respawn : MonoBehaviour {
 
 			other.gameObject.transform.position = temp;
 
-			punto.restar ();
+			manager.restarPunto ();
 		}
 
 		if (other.gameObject.tag == "Player") {

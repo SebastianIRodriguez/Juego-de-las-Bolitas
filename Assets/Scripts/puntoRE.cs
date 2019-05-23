@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class puntoRE : MonoBehaviour {
 
-	public finish manager;
+	public GameManager manager;
 
 	public respawn r;
 
 	void OnCollisionEnter(Collision other) {
-		if(other.gameObject.CompareTag("BolaR"))
+		if(other.gameObject.CompareTag("BolaRoja"))
 		{
-			manager.sumar ();
+			manager.sumarPunto ();
 			manager.Onred = true;
 		}
 		if(other.gameObject.CompareTag("Player"))
 		{
 			r.last = true;
 		}
-		if(other.gameObject.CompareTag("BolaV"))
+		if(other.gameObject.CompareTag("BolaVerde"))
 		{
 			manager.Ongreen = false;
 		}
