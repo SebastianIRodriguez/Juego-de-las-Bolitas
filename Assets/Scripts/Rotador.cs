@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Rotador : MonoBehaviour {
-	public GameManager manager;
+	public myGameManager manager;
 	private float limiteInicioRotacion;
 
 	void Start(){

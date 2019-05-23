@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class respawn : MonoBehaviour {
 
-	public GameObject zonered;
+	public GameObject spawnZoneRoja;
 
-	public GameObject zonegreen;
+	public GameObject spawnZoneVerde;
 
-	public GameManager manager;
+	public GameObject spawnZoneAzul;
 
-	public Transform LadoV, LadoR;
+	public GameObject spawnZonePlayer;
 
-	public bool last=false;//false = verde, true = rojo
+	public myGameManager manager;
+
 	
 	void OnCollisionEnter(Collision other) {
 		if(other.gameObject.CompareTag("BolaRoja"))
 		{
 			Vector3 temp = other.gameObject.transform.position;
 
-			temp.x = zonegreen.gameObject.transform.position.x;
-			temp.y = zonegreen.gameObject.transform.position.y;
-			temp.z = zonegreen.gameObject.transform.position.z;
+			temp.x = spawnZoneRoja.gameObject.transform.position.x;
+			temp.y = spawnZoneRoja.gameObject.transform.position.y;
+			temp.z = spawnZoneRoja.gameObject.transform.position.z;
 
 			other.gameObject.transform.position = temp;
 
@@ -32,9 +33,22 @@ public class respawn : MonoBehaviour {
 		{
 			Vector3 temp = other.gameObject.transform.position;
 
-			temp.x = zonered.gameObject.transform.position.x;
-			temp.y = zonered.gameObject.transform.position.y;
-			temp.z = zonered.gameObject.transform.position.z;
+			temp.x = spawnZoneVerde.gameObject.transform.position.x;
+			temp.y = spawnZoneVerde.gameObject.transform.position.y;
+			temp.z = spawnZoneVerde.gameObject.transform.position.z;
+
+			other.gameObject.transform.position = temp;
+
+			manager.restarPunto ();
+		}
+
+		if(other.gameObject.CompareTag("BolaAzul"))
+		{
+			Vector3 temp = other.gameObject.transform.position;
+
+			temp.x = spawnZoneAzul.gameObject.transform.position.x;
+			temp.y = spawnZoneAzul.gameObject.transform.position.y;
+			temp.z = spawnZoneAzul.gameObject.transform.position.z;
 
 			other.gameObject.transform.position = temp;
 
@@ -42,11 +56,15 @@ public class respawn : MonoBehaviour {
 		}
 
 		if (other.gameObject.tag == "Player") {
-			if (last) {
-				other.gameObject.transform.position = LadoV.position;
-			} else {
-				other.gameObject.transform.position = LadoR.position;
-			}
+			Vector3 temp = other.gameObject.transform.position;
+
+			temp.x = spawnZonePlayer.gameObject.transform.position.x;
+			temp.y = spawnZonePlayer.gameObject.transform.position.y;
+			temp.z = spawnZonePlayer.gameObject.transform.position.z;
+
+			other.gameObject.transform.position = temp;
+
+			manager.restarPunto ();
 		}
 	}
 }

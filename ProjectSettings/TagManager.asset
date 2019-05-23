@@ -10,6 +10,7 @@ TagManager:
   - SpawnAzul
   - SpawnVerde
   - SpawnRoja
+  - SpawnPlayer
   layers:
   - Default
   - TransparentFX
