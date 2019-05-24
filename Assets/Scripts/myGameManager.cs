@@ -7,9 +7,10 @@ public class myGameManager : MonoBehaviour {
 
 	public Text scoreText;
 	public Text timeText;
+	public Text mensajeFin;
 
-	public int puntos = 8;
-	public float time = 50;
+	public int puntos = 0;
+	public float time = 0;
 
 	public bool BolaRojaEncestada, BolaVerdeEncestada, BolaAzulEncestada;
 
@@ -19,17 +20,15 @@ public class myGameManager : MonoBehaviour {
 
 	void FixedUpdate () {
 		time -= Time.deltaTime;
-		timeText.text = "Time: " + time;
+		timeText.text = "Time: " + time.ToString("00.0");
 		scoreText.text = "Score: " + puntos;
 
 		if(time<=0 || puntos==0) {
-			timeText.text = "Perdiste";
-			Time.timeScale = 0;
+			terminarJuego(false);
 		}
 
 		if (BolaRojaEncestada && BolaVerdeEncestada && BolaAzulEncestada) {
-			timeText.text = "Ganaste";
-			Time.timeScale = 0;
+			terminarJuego(true);
 		}
 
 		if (Input.GetKey("q") && Time.timeScale == 0)
@@ -57,6 +56,18 @@ public class myGameManager : MonoBehaviour {
 				break;
 		}
 		sumarPunto();
+	}
+
+	public void terminarJuego(bool gano){
+		Time.timeScale = 0;
+
+		if(gano){
+			mensajeFin.text = "Ganaste!";
+		}
+		else {
+			mensajeFin.text = "Perdiste!";
+		}
+
 	}
 
 }

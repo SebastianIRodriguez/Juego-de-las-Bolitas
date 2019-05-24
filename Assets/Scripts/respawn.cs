@@ -16,7 +16,7 @@ public class respawn : MonoBehaviour {
 
 	
 	void OnCollisionEnter(Collision other) {
-		if(other.gameObject.CompareTag("BolaRoja"))
+		if(other.gameObject.CompareTag("BolaRoja") && manager.BolaRojaEncestada == false)
 		{
 			Vector3 temp = other.gameObject.transform.position;
 
@@ -29,7 +29,7 @@ public class respawn : MonoBehaviour {
 			manager.restarPunto();
 		}
 
-		if(other.gameObject.CompareTag("BolaVerde"))
+		if(other.gameObject.CompareTag("BolaVerde") && manager.BolaVerdeEncestada == false)
 		{
 			Vector3 temp = other.gameObject.transform.position;
 
@@ -42,7 +42,7 @@ public class respawn : MonoBehaviour {
 			manager.restarPunto ();
 		}
 
-		if(other.gameObject.CompareTag("BolaAzul"))
+		if(other.gameObject.CompareTag("BolaAzul") && manager.BolaAzulEncestada == false)
 		{
 			Vector3 temp = other.gameObject.transform.position;
 
@@ -63,8 +63,6 @@ public class respawn : MonoBehaviour {
 			temp.z = spawnZonePlayer.gameObject.transform.position.z;
 
 			other.gameObject.transform.position = temp;
-
-			manager.restarPunto ();
 		}
 	}
 }
